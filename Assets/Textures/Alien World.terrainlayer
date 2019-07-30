@@ -6,7 +6,7 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewLayer 2
+  m_Name: Alien World
   m_DiffuseTexture: {fileID: 2800000, guid: bc496c974ad6e7b42bdbaf62a868429a, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: c486a09eebe1ae745b184c9bb8e132db, type: 3}
   m_MaskMapTexture: {fileID: 0}
