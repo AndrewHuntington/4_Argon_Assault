@@ -1,28 +1,62 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
-    [Tooltip("In ms^-1 (meters per second)")] [SerializeField] float xSpeed = 4f;
+    [Tooltip("In ms^-1")] [SerializeField] float xSpeed = 15f;
+    [Tooltip("In ms^-1")] [SerializeField] float ySpeed = 15f;
     [Tooltip("In m")] [SerializeField] float xRange = 5f;
+    [Tooltip("In m")] [SerializeField] float yRange = 3f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float positionPitchFactor = -5f;
+    [SerializeField] float controlPitchFactor = -20f;
+
+    [SerializeField] float positionYawFactor = 5f;
+
+    [SerializeField] float controlRollFactor = -20;
+
+    float xThrow, yThrow;
 
     // Update is called once per frame
     void Update()
     {
-        float xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+        ProcessTranslation();
+        ProcessRotation();
+    }
+
+    private void ProcessRotation()
+    {
+        float pitchDueToPosition = transform.localPosition.y * positionPitchFactor; // for aiming
+        float pitchDueToControlThrow = yThrow * controlPitchFactor; // nose movement while going up/down
+        float pitch = pitchDueToPosition + pitchDueToControlThrow;
+        
+        float yaw = transform.localPosition.x * positionYawFactor; // yaw ROTATES around Y axis
+
+        float roll = xThrow * controlRollFactor; // roll ROTATES around Z axis
+
+        // setting the localRoation directly will produce unexpected results
+        // instead set w/function Quaternion.Euler(pitch, yaw, roll)
+        // pitch = x; yaw = y; roll = z
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    private void ProcessTranslation()
+    {
+        xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+        yThrow = CrossPlatformInputManager.GetAxis("Vertical");
+
         float xOffset = xThrow * xSpeed * Time.deltaTime;
+        float yOffset = yThrow * ySpeed * Time.deltaTime;
 
         float rawXPos = transform.localPosition.x + xOffset;
-        float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
+        float rawYPos = transform.localPosition.y + yOffset;
 
-        transform.localPosition = new Vector3(clampedXPos, transform.localPosition.y, transform.localPosition.z);
+        float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
+        float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
+
+        transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
     }
 }
