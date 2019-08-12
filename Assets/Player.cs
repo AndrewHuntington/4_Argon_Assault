@@ -6,18 +6,23 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     [Tooltip("In ms^-1 (meters per second)")] [SerializeField] float xSpeed = 4f;
+    [Tooltip("In m")] [SerializeField] float xRange = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 60;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         float xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        float xOffsetThisFrame = xThrow * xSpeed * Time.deltaTime;
-        print(xOffsetThisFrame);
+        float xOffset = xThrow * xSpeed * Time.deltaTime;
+
+        float rawXPos = transform.localPosition.x + xOffset;
+        float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
+
+        transform.localPosition = new Vector3(clampedXPos, transform.localPosition.y, transform.localPosition.z);
     }
 }
