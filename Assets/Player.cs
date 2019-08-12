@@ -6,17 +6,17 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
-    [Tooltip("In ms^-1")] [SerializeField] float xSpeed = 15f;
-    [Tooltip("In ms^-1")] [SerializeField] float ySpeed = 15f;
+    [Tooltip("In ms^-1")] [SerializeField] float xSpeed = 10f;
+    [Tooltip("In ms^-1")] [SerializeField] float ySpeed = 10f;
     [Tooltip("In m")] [SerializeField] float xRange = 5f;
-    [Tooltip("In m")] [SerializeField] float yRange = 3f;
+    [Tooltip("In m")] [SerializeField] float yRange = 3.5f;
 
     [SerializeField] float positionPitchFactor = -5f;
-    [SerializeField] float controlPitchFactor = -20f;
+    [SerializeField] float controlPitchFactor = -23f;
 
     [SerializeField] float positionYawFactor = 5f;
 
-    [SerializeField] float controlRollFactor = -20;
+    [SerializeField] float controlRollFactor = -25;
 
     float xThrow, yThrow;
 
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     private void ProcessTranslation()
     {
         xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        yThrow = CrossPlatformInputManager.GetAxis("Vertical");
+        yThrow = -CrossPlatformInputManager.GetAxis("Vertical");
 
         float xOffset = xThrow * xSpeed * Time.deltaTime;
         float yOffset = yThrow * ySpeed * Time.deltaTime;
