@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
 
     float xThrow, yThrow;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        print("Play triggered something");
+    }
+
     // Update is called once per frame
     void Update()
     {
