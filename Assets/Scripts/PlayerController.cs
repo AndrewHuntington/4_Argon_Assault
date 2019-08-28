@@ -4,32 +4,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("General")]
     [Tooltip("In ms^-1")] [SerializeField] float xSpeed = 10f;
     [Tooltip("In ms^-1")] [SerializeField] float ySpeed = 10f;
     [Tooltip("In m")] [SerializeField] float xRange = 5f;
     [Tooltip("In m")] [SerializeField] float yRange = 3.5f;
 
+    [Header("Screen-position Based")]
     [SerializeField] float positionPitchFactor = -5f;
-    [SerializeField] float controlPitchFactor = -23f;
-
     [SerializeField] float positionYawFactor = 5f;
-
+    
+    [Header("Control-throw Based")]
+    [SerializeField] float controlPitchFactor = -23f;
     [SerializeField] float controlRollFactor = -25;
 
     float xThrow, yThrow;
+    bool isControlEnabled = true;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Play triggered something");
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isControlEnabled)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        } 
+    }
+
+    void OnPlayerDeath() // called by string reference
+    {
+        isControlEnabled = false;
     }
 
     private void ProcessRotation()
