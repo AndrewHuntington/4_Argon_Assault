@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86a3851653730141a9dd32eb280d41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoadDelay: 1
+  deathFX: {fileID: 5954156134674413776}
 --- !u!1 &5954156134674413776
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &282843439715207498
 Transform:
   m_ObjectHideFlags: 0
@@ -4910,7 +4912,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a36d7414e6ca11446863b67d9d09df6d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5061,6 +5063,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4303604213190853865, guid: 83be9cfe582e8af458e9378fc1d115f2,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303604213190853865, guid: 83be9cfe582e8af458e9378fc1d115f2,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303604213190853865, guid: 83be9cfe582e8af458e9378fc1d115f2,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83be9cfe582e8af458e9378fc1d115f2, type: 3}
 --- !u!4 &3650061088431312644 stripped
@@ -5135,6 +5152,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303604213190853865, guid: 83be9cfe582e8af458e9378fc1d115f2,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303604213190853865, guid: 83be9cfe582e8af458e9378fc1d115f2,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303604213190853865, guid: 83be9cfe582e8af458e9378fc1d115f2,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83be9cfe582e8af458e9378fc1d115f2, type: 3}
