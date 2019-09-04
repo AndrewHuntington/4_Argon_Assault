@@ -2114,13 +2114,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1898335234, guid: 7903c3178f44ca944bf643f573d7afa5, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898335235, guid: 7903c3178f44ca944bf643f573d7afa5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
+    - target: {fileID: 999832745, guid: 7903c3178f44ca944bf643f573d7afa5, type: 3}
+      propertyPath: deathFX
+      value: 
+      objectReference: {fileID: 5954156134674413776}
+    - target: {fileID: 5954156134674413776, guid: 7903c3178f44ca944bf643f573d7afa5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7903c3178f44ca944bf643f573d7afa5, type: 3}
@@ -2341,6 +2342,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c12e2869cebcde47b8e228a0a094e57, type: 3}
+--- !u!1 &5954156134674413776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5954156134674413776, guid: 7903c3178f44ca944bf643f573d7afa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 657215493704146005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6245334443062469755
 PrefabInstance:
   m_ObjectHideFlags: 0
