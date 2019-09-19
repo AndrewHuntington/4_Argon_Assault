@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Large Enemy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 321899575376222971, guid: fa4f04f1313829143a38cede0335b59f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 315581289184556023, guid: fa4f04f1313829143a38cede0335b59f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,6 +197,10 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 1897506141}
+    - target: {fileID: 1313203494, guid: fa4f04f1313829143a38cede0335b59f, type: 3}
+      propertyPath: scorePerHit
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4f04f1313829143a38cede0335b59f, type: 3}
 --- !u!1001 &251424534
@@ -424,10 +433,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -640,7 +649,7 @@ GameObject:
   - component: {fileID: 516056486}
   - component: {fileID: 516056488}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Score Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,7 +728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20941573ccf3af4894cee7dd35fd691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePerHit: 12
 --- !u!1 &536754855
 GameObject:
   m_ObjectHideFlags: 0
